@@ -6,7 +6,7 @@ func main() {
 	OnBite(10, 1, 200)
 }
 
-func OnBite(position int, change int, num int) {
+func OnBite(position int, change int, num int64) {
 
 	if position < 0 || position > 63 {
 		log.Println("incorrect position")
