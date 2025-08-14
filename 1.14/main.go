@@ -23,8 +23,8 @@ func typeOfx(x interface{}) {
 		fmt.Println("Bool >>>", v)
 	}
 
-	r := reflect.TypeOf(x).Kind() == reflect.Chan
-	if r {
-		fmt.Println("Channel")
+	r := reflect.TypeOf(x)
+	if r.Kind() == reflect.Chan {
+		fmt.Println("Channel", r.Elem())
 	}
 }
