@@ -1,11 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
 	typeOfx("string")
 	typeOfx(4)
 	typeOfx(false)
+	var ch chan int
+	typeOfx(ch)
 }
 
 func typeOfx(x interface{}) {
@@ -16,7 +21,10 @@ func typeOfx(x interface{}) {
 		fmt.Println("String >>>", v)
 	case bool:
 		fmt.Println("Bool >>>", v)
-	default:
-		fmt.Println("Другой")
+	}
+
+	r := reflect.TypeOf(x).Kind() == reflect.Chan
+	if r {
+		fmt.Println("Channel")
 	}
 }
