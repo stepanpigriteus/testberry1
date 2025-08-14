@@ -29,11 +29,11 @@ func main() {
 	_ = cross(a, b)
 	elapsed := time.Since(start)
 	fmt.Println("Длинна:", len(a), len(b), "\nВ байтах:", len(a)*int(unsafe.Sizeof(a[0])), len(a)*int(unsafe.Sizeof(b[0])))
-	fmt.Println("\nМасссив А: \nВремя выполнения: ", elapsed)
+	fmt.Println("\nБез конкур: \nВремя выполнения: ", elapsed)
 	startq := time.Now()
 	_ = crossWorkerPool(a, b)
 	elapsedq := time.Since(startq)
-	fmt.Println("\nМасссив B: \nВремя выполнения: ", elapsedq)
+	fmt.Println("\nКонкур: \nВремя выполнения: ", elapsedq)
 
 }
 
